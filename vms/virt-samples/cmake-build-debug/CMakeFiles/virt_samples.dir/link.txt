@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/virt_samples.dir/main.cpp.o -o virt_samples  -lvirt 

@@ -1,7 +1,0 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /tmp/tmp.h9duEfx1T4
-CMake Error at cmd/vmware/CMakeLists.txt:15 (message):
-  VDDK library not found
-
-
--- Configuring incomplete, errors occurred!
-See also "/tmp/tmp.h9duEfx1T4/cmake-build-debug/CMakeFiles/CMakeOutput.log".

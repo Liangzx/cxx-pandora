@@ -1,3 +1,0 @@
-/tmp/tmp.h9duEfx1T4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/tmp/tmp.h9duEfx1T4/cmake-build-debug/CMakeFiles/edit_cache.dir
-/tmp/tmp.h9duEfx1T4/cmake-build-debug/CMakeFiles/vmware.dir
