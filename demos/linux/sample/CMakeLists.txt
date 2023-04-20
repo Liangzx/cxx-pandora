@@ -1,0 +1,1 @@
+add_executable(linux_fun main.cpp)

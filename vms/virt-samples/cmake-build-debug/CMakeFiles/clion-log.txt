@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /root/cpp-workspace/pandora/virt-samples
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/cpp-workspace/pandora/virt-samples/cmake-build-debug

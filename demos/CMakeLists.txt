@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.22)
+project(demos)
+
+set(CMAKE_CXX_STANDARD 17)
+
+#add_subdirectory(fs)
+#add_subdirectory(jsoncpp)
+#add_subdirectory(openssl)
+#add_subdirectory(linux)
+#add_subdirectory(markup)
+#add_subdirectory(alg_set)
+#add_subdirectory(const_expr)
+#add_subdirectory(s3)
+#add_subdirectory(boost)
+#add_subdirectory(soci)
+#add_subdirectory(leveldb)
+add_subdirectory(absl)

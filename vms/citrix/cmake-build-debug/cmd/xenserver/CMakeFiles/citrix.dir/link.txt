@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/citrix.dir/main.cpp.o -o citrix  -Wl,-rpath,/root/cpp-workspace/pandora/vms/citrix/third_party/xenserver/7.6.0/lib64 -lpthread -lxml2 -lcurl ../../../third_party/xenserver/7.6.0/lib64/libxenserver.so 
