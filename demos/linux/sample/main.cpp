@@ -1,6 +1,10 @@
 #include <vector>
 #include <iostream>
 
+void pptr(int *a) {
+
+}
+
 int main() {
   std::vector<int> a{1, 3, 5};
   std::vector<int> b{1, 3, 5};

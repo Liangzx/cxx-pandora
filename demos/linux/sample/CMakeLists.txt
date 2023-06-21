@@ -1,1 +1,1 @@
-add_executable(linux_fun main.cpp)
+add_executable(linux_sample main.cpp)

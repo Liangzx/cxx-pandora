@@ -40,7 +40,7 @@ std::string JoinAlgorithm(const std::tuple<T...>& tup, absl::string_view sep,
   JoinTupleLoop<0, sizeof...(T)>()(&result, tup, sep, fmt);
   return result;
 }
-// 当 I = N 时，直接放回
+// 当 I = N 时，直接返回
 // 当 I != N 时，递归调用
 // fmt 起到格式转换的作用，比如将 int 转成 string
 //
