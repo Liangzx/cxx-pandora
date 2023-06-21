@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Ignore Visual Studio Code files and directories
+.vscode/
+.vscode/*
+
+
+# Ignore GoLand files and directories
+.idea/
+.idea/*
