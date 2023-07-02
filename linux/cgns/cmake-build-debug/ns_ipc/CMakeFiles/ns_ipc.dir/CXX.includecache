@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/e/cxx-workspace/Liangzx/linux/cgns/ns_ipc/main.cpp
+sched.h
+-
+signal.h
+-
+stdio.h
+-
+sys/types.h
+-
+sys/wait.h
+-
+unistd.h
+-
+sys/types.h
+-
+dirent.h
+-
+mutex
+-
+iostream
+-
+

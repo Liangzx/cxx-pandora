@@ -1,0 +1,3 @@
+/mnt/e/cxx-workspace/Liangzx/linux/ipc/pipe/build/CMakeFiles/pipe_samples.dir
+/mnt/e/cxx-workspace/Liangzx/linux/ipc/pipe/build/CMakeFiles/edit_cache.dir
+/mnt/e/cxx-workspace/Liangzx/linux/ipc/pipe/build/CMakeFiles/rebuild_cache.dir

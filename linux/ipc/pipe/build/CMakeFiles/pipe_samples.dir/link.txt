@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/pipe_samples.dir/pipe_samples.cpp.o -o pipe_samples 

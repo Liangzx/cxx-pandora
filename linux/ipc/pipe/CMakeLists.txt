@@ -1,0 +1,1 @@
+add_executable(pipe_samples pipe_samples.cpp)

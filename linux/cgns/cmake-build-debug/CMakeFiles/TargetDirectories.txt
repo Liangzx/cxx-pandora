@@ -1,0 +1,5 @@
+/mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug/ns_ipc/CMakeFiles/ns_ipc.dir
+/mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug/ns_ipc/CMakeFiles/edit_cache.dir
+/mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug/ns_ipc/CMakeFiles/rebuild_cache.dir
