@@ -1,3 +1,0 @@
-/mnt/e/cxx-workspace/Liangzx/linux/cgns/ns_no/build/CMakeFiles/ns_no.dir
-/mnt/e/cxx-workspace/Liangzx/linux/cgns/ns_no/build/CMakeFiles/edit_cache.dir
-/mnt/e/cxx-workspace/Liangzx/linux/cgns/ns_no/build/CMakeFiles/rebuild_cache.dir

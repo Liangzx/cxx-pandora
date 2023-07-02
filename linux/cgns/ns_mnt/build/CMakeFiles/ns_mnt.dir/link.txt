@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/ns_mnt.dir/main.cpp.o -o ns_mnt 
