@@ -1,4 +1,0 @@
-C:\Windows\system32\wsl.exe --distribution Ubuntu-22.04 --exec /bin/sh -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G 'CodeBlocks - Unix Makefiles' /mnt/e/cxx-workspace/Liangzx/linux/cgns"
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/e/cxx-workspace/Liangzx/linux/cgns/cmake-build-debug

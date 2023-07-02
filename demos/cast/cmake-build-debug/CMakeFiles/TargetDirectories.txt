@@ -1,3 +1,0 @@
-/mnt/e/cxx-workspace/github.com/Liangzx/cxx-pandora/demos/cast/cmake-build-debug/CMakeFiles/cast_demo,.dir
-/mnt/e/cxx-workspace/github.com/Liangzx/cxx-pandora/demos/cast/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/e/cxx-workspace/github.com/Liangzx/cxx-pandora/demos/cast/cmake-build-debug/CMakeFiles/rebuild_cache.dir
