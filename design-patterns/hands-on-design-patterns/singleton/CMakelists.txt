@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+project(singleton)
+
+find_package(benchmark)
+
+# singleton_eager_bk
+add_executable(singleton_eager_bk singleton_eager.cpp)
+target_link_libraries(singleton_eager_bk benchmark::benchmark)
+
+# singleton_meyers_bk
+add_executable(singleton_meyers_bk singleton_meyers.cpp)
+target_link_libraries(singleton_meyers_bk benchmark::benchmark)
+
+# singleton_meyers_impl_bk
+add_executable(singleton_meyers_impl_bk singleton_meyers_impl.cpp)
+target_link_libraries(singleton_meyers_impl_bk benchmark::benchmark)
