@@ -1,0 +1,3 @@
+test stderr
+xx
+xx
