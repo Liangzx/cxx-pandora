@@ -57,9 +57,10 @@ ScopeGuard<Func> operator+(ScopeGuardOnExit, Func &&func) {
 
 void ff() { std::cout << "hello" << std::endl; }
 
+#include <algorithm>
+#include <type_traits>
+#include <iterator>
 int main() {
   ON_SCOPE_EXIT { ff(); };
   std::cout << "world" << std::endl;
-
-  return 0;
 }
