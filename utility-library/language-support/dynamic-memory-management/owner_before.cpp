@@ -52,7 +52,7 @@ void func2()
         It will see a, b, d, and e as all equivalent and c as different
         (assuming that you converted both sides to shared_ptr<void> so that they are comparable).
      */
-    
+
     std::set<std::shared_ptr<T>> st;
     // std::set<std::shared_ptr<T>, std::owner_less<std::shared_ptr<T>>> st2;
     st.insert(a);
@@ -64,9 +64,26 @@ void func2()
     std::cout << st.size() << std::endl; // st -> 1 st2->2
 }
 
+//--------------
+struct C
+{
+    int data_;
+};
+
+void func3()
+{
+    std::shared_ptr<C> obj(new C);             // obj是C类型对象的一个共享指针
+    std::cout << obj.use_count() << std::endl; // 1
+    std::shared_ptr<int> p9(obj, &obj->data_); // p9是obj的一个共享指针，但指向的是C对象的data数据成员
+    std::cout << obj.use_count() << std::endl; // 2
+    std::cout << p9.use_count() << std::endl;  // 2
+    std::cout << *p9 << std::endl;             // 访问的是obj->data
+    std::cout << *(p9.get()) << std::endl;     // 访问的是obj->data
+}
+
 int main()
 {
-    func2();
+    func3();
 
     return 0;
 }
