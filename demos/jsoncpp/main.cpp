@@ -5,7 +5,7 @@
 #include <iostream>
 #include <mutex>
 
- void parse_mem_objects() {
+void parse_mem_objects() {
   const std::string rawString =
       R"({"name" : "tony", "salary" : 100, "msg" : "work hard", "files" : [
       "1.ts", "2.txt" ]})";
@@ -33,7 +33,7 @@
   }
 }
 
- void demo_write_simple() {
+void demo_write_simple() {
   Json::Value root;  // root
   Json::FastWriter writer;
 
@@ -51,138 +51,135 @@
 }
 
 // 创建json字符串 新式API的使用
- std::string createJson() {
-   std::string jsonStr;
-   Json::Value root, language, mail;
-   Json::StreamWriterBuilder writerBuilder;  // 新式API
-   std::ostringstream os;
+std::string createJson() {
+  std::string jsonStr;
+  Json::Value root, language, mail;
+  Json::StreamWriterBuilder writerBuilder;  // 新式API
+  std::ostringstream os;
 
-   // 设置默认无格式化的输出
-   writerBuilder.settings_["indentation"] = "";
+  // 设置默认无格式化的输出
+  writerBuilder.settings_["indentation"] = "";
 
-   root["Name"] = "Zhangsan";
-   root["Age"] = 25;
+  root["Name"] = "Zhangsan";
+  root["Age"] = 25;
 
-   language[0] = "C";
-   language[1] = "C++";
-   root["Language"] = language;
+  language[0] = "C";
+  language[1] = "C++";
+  root["Language"] = language;
 
-   mail["QQ"] = "zhangsan@qq.com";
-   mail["Google"] = "san.zhang@gmail.com";
-   root["E-mail"] = mail;
+  mail["QQ"] = "zhangsan@qq.com";
+  mail["Google"] = "san.zhang@gmail.com";
+  root["E-mail"] = mail;
 
-   root["Industry"] = "IT";
+  root["Industry"] = "IT";
 
-   // 这里使用智能指针
-   std::unique_ptr<Json::StreamWriter> jsonWriter(
-       writerBuilder.newStreamWriter());
-   jsonWriter->write(root, &os);  // json-->stringstream
-   jsonStr = os.str();            // 转为string
+  // 这里使用智能指针
+  std::unique_ptr<Json::StreamWriter> jsonWriter(
+      writerBuilder.newStreamWriter());
+  jsonWriter->write(root, &os);  // json-->stringstream
+  jsonStr = os.str();            // 转为string
 
-   // 无格式化的输出
-   std::cout << "Json-none:\n" << jsonStr << std::endl;
-   // 格式化的输出
-   std::cout << "Json-formatted:\n" << root.toStyledString() << std::endl;
+  // 无格式化的输出
+  std::cout << "Json-none:\n" << jsonStr << std::endl;
+  // 格式化的输出
+  std::cout << "Json-formatted:\n" << root.toStyledString() << std::endl;
 
-   return jsonStr;
- }
+  return jsonStr;
+}
 
- bool parseJSON() {
-   const std::string rawString =
-       R"({"name" : "tony", "salary" : 100, "msg" : "work hard"})";
+bool parseJSON() {
+  const std::string rawString =
+      R"({"name" : "tony", "salary" : 100, "msg" : "work hard"})";
 
-   Json::Value root;
-   Json::String errs;
-   Json::CharReaderBuilder readBuilder;  //
-   std::unique_ptr<Json::CharReader> jsonRead(readBuilder.newCharReader());
-   if (!jsonRead) {
-     std::cerr << "jsonRead is null" << std::endl;
-     return false;
-   }
-   // reader将Json字符串解析到root，root将包含Json里所有子元素
-   bool ret = jsonRead->parse(
-       rawString.c_str(), rawString.c_str() + rawString.length(), &root,
-       &errs);
-   if (!ret || !errs.empty()) {
-     std::cout << "parseJsonFromString error!" << errs << std::endl;
-     return false;
-   }
+  Json::Value root;
+  Json::String errs;
+  Json::CharReaderBuilder readBuilder;  //
+  std::unique_ptr<Json::CharReader> jsonRead(readBuilder.newCharReader());
+  if (!jsonRead) {
+    std::cerr << "jsonRead is null" << std::endl;
+    return false;
+  }
+  // reader将Json字符串解析到root，root将包含Json里所有子元素
+  bool ret = jsonRead->parse(
+      rawString.c_str(), rawString.c_str() + rawString.length(), &root, &errs);
+  if (!ret || !errs.empty()) {
+    std::cout << "parseJsonFromString error!" << errs << std::endl;
+    return false;
+  }
 
-   std::cout << "parsrJSON() read from memory using object start !
-   ---------\n";
-   // 看一下对象中key value
-   std::string name = root["name"].asString();
-   int salary = root["salary"].asInt();
-   std::string msg = root["msg"].asString();
-   std::cout << "name: " << name << " salary: " << salary;
-   std::cout << " msg: " << msg << std::endl;
-   std::cout << "parseJSON() read from memory using object  end !---------\n";
-   return true;
- }
+  std::cout << "parsrJSON() read from memory using object start !
+      -- -- -- -- -\n ";
+      // 看一下对象中key value
+      std::string name = root["name"].asString();
+  int salary = root["salary"].asInt();
+  std::string msg = root["msg"].asString();
+  std::cout << "name: " << name << " salary: " << salary;
+  std::cout << " msg: " << msg << std::endl;
+  std::cout << "parseJSON() read from memory using object  end !---------\n";
+  return true;
+}
 
- template <typename T>
- T ConvertTo(Json::Value &v) {
-   return v.asBool();
- }
+template <typename T>
+T ConvertTo(Json::Value &v) {
+  return v.asBool();
+}
 
- class A {
-   constexpr static auto a = "hello";
- };
+class A {
+  constexpr static auto a = "hello";
+};
 
- template <typename Source, typename V>
- bool Marshal(Source &&s, V &&v);
+template <typename Source, typename V>
+bool Marshal(Source &&s, V &&v);
 
- template <typename Source, typename V>
- bool Marshal(std::string s, V &&v) {
-   Json::Value root;
- }
+template <typename Source, typename V>
+bool Marshal(std::string s, V &&v) {
+  Json::Value root;
+}
 
- template <typename D>
- struct Serializer {
-   bool Marshal(const std::string & src) {
-     return static_cast <D*>(this)->Marshal(src);
-   }
-   Json::Value v_;
- };
+template <typename D>
+struct Serializer {
+  bool Marshal(const std::string &src) {
+    return static_cast<D *>(this)->Marshal(src);
+  }
+  Json::Value v_;
+};
 
- template <typename T, typename std::enable_if<&T::Marshal>::type* = nullptr>
- bool Marshal(T && v) {
-   return false;
- }
+template <typename T, typename std::enable_if<&T::Marshal>::type * = nullptr>
+bool Marshal(T &&v) {
+  return false;
+}
 
- struct Stu {
-   int a_;
-   std::string b_;
-   bool Marshal() {
+struct Stu {
+  int a_;
+  std::string b_;
+  bool Marshal() {}
+};
 
-   }
- };
+template <class T, class = std::void_t<>>
+struct HasToStringFunction : false_type {};
 
- template <class T, class = std::void_t<>>
- struct HasToStringFunction : false_type {};
+template <class T>
+struct HasToStringFunction<T, std::void_t<decltype(declval<T>().toString())>>
+    : true_type {};
 
- template <class T>
- struct HasToStringFunction<T, std::void_t<decltype(declval<T>().toString())>> : true_type {};
+int main() {
+  Stu stu;
+  
+  Marshal(&stu);
+  Json::Value root;
+  Json::Value vv;
+  Json::Reader r;
 
+  //    r.parse()
 
- int main() {
-   Stu stu;
-   Marshal(&stu);
-   Json::Value root;
-   Json::Value vv;
-   Json::Reader r;
-   //    r.parse()
+  for (const auto &v : {"hello", "world"}) {
+    vv["hello"] = v;
+    root["xx"].append(vv);
+  }
+  std::cout << root.toStyledString() << std::endl;
 
-   for (const auto &v : {"hello", "world"}) {
-     vv["hello"] = v;
-     root["xx"].append(vv);
-   }
-   std::cout << root.toStyledString() << std::endl;
-
-   std::int64_t a;
-   //    parse_mem_objects();
-   std::mutex t;
-   return 0;
- }
-
-
+  std::int64_t a;
+  //    parse_mem_objects();
+  std::mutex t;
+  return 0;
+}
