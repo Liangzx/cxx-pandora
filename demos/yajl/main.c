@@ -67,6 +67,11 @@ yajl_gen_status end_array(void *ctx) {
   return __stat;
 }
 
+void gen_print(void *ctx, const char *str, size_t len) {
+  printf("%s", str);
+}
+
+
 int yajl_init(yajl_info *info) {
   info->depth = 0;
   info->gen = yajl_gen_alloc(NULL);
@@ -74,6 +79,7 @@ int yajl_init(yajl_info *info) {
   // 设置输出格式
   yajl_gen_config(info->gen, yajl_gen_beautify, 1);
 #endif
+  yajl_gen_config(info->gen, yajl_gen_print_callback, gen_print, NULL);
 }
 
 int yajl_free(yajl_info *info) {
@@ -126,10 +132,9 @@ int main(int argc, char **argv) {
 #endif
   // 这里是获取已经生成好的json语句，保存在buf中，长度保存在buflen中
   yajl_gen_get_buf(yajlinfo.gen, &buf, &buflen);
-  printf("%s\n", buf);
+  // printf("%s\n", buf);
   yajl_free(&yajlinfo);
-  printf("%d\n", sizeof("hello"));
-  printf("%d\n", strlen("hello"));
+
 
   return 0;
 }

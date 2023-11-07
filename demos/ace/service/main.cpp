@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
   // Instantiate and start up the Signal Handler. This is uses to
   // handle re-configuration events.
   Signal_Handler sh;
+  
   sh.open();
   if (ACE_Service_Config::open(argc, argv) == -1)
     ACE_ERROR_RETURN((LM_ERROR, "%p\n", "ACE_Service_Config::open"), -1);

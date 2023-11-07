@@ -29,9 +29,15 @@ public:
   A(A &&that):Base(std::move(that)) { cout << "子类移动构造" << endl; }
 };
 
+constexpr auto kKB = 1024;
+constexpr auto kMB = 1024 * kKB;
+
 int main() {
-  A a("x");
-  cout << "------" << endl;
-  A a1 =std::move(a);
-  cout << "------" << a.str << endl;
+  int na = kMB;
+  std::string a {0x65, 0x02, 0x03, 0x04};
+  std::cout << "hello" << a[0] << std::endl;
+  // A a("x");
+  // cout << "------" << endl;
+  // A a1 =std::move(a);
+  // cout << "------" << a.str << endl;
 }
