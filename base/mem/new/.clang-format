@@ -1,0 +1,12 @@
+---
+BasedOnStyle: Google
+---
+Language: Cpp
+AccessModifierOffset: -4
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+SortIncludes: false
+SortUsingDeclarations: false
+ColumnLimit: 91
+PointerAlignment: Left
