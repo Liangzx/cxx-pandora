@@ -10,8 +10,6 @@ const int MAXLINE = 2048;
 
 void echo(int sock_fd , struct sockaddr *cli_sock_addr , socklen_t len) {
     int n;
-    struct sockaddr_in cliaddr{};
-    socklen_t len = sizeof(cliaddr);
     char mesg[MAXLINE];
 
     for (;;) {
@@ -30,7 +28,7 @@ void echo(int sock_fd , struct sockaddr *cli_sock_addr , socklen_t len) {
 }
 
 int main() {
-    struct sockaddr_in sock_addr{};
+    struct sockaddr_in sock_addr{}, cli_sock_addr{};
     // build address
     bzero(&sock_addr, sizeof(sock_addr));
     sock_addr.sin_family = AF_INET;
@@ -49,6 +47,7 @@ int main() {
         exit(1);
     }
     //
-    echo(sock_fd, );
+    
+    echo(sock_fd , (struct sockaddr *)&cli_sock_addr , sizeof(cli_sock_addr));
     return 0;
 }
