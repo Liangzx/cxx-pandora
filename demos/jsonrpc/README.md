@@ -1,0 +1,1 @@
+https://github.com/cinemast/libjson-rpc-cpp

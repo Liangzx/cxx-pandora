@@ -1,0 +1,2 @@
+add_executable(cached_allocator cached_allocator.cpp)
+target_link_libraries(cached_allocator  ACE)

@@ -1,0 +1,1 @@
+gcc main.c -L /usr/local/lib -lyajl

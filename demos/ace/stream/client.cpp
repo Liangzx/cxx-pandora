@@ -51,6 +51,7 @@ class Client {
   ACE_SOCK_Connector connector_;
   char *data_buf_;
 };
+
 int main(int argc, char *argv[]) {
   if (argc < 3) {
     ACE_DEBUG((LM_DEBUG,"Usage % s<hostname><port_number>\n", argv[0]));

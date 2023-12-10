@@ -112,6 +112,12 @@ void ClientCode(std::array<const Component *, 2> components, Visitor *visitor) {
   // ...
 }
 
+/**
+ * 双派发：
+ * 1. Component 派发一次
+ * 2. Visitor 派发一次
+*/
+
 int main() {
   std::array<const Component *, 2> components = {new ConcreteComponentA,
                                                  new ConcreteComponentB};
