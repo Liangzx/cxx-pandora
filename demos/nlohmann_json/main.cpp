@@ -1,4 +1,8 @@
 #include <iostream>
+#include <memory>
+#include <unordered_map>
+#include <map>
+
 #include "nlohmann/json.hpp"
 
 
@@ -41,12 +45,22 @@ class ClassName {
     }
 };
 
+template<typename T, template <typename U, typename V, typename... Args> class Container = std::unordered_map >
+struct SomeType {
+    Container<T, std::unique_ptr<SomeType> > mapping;
+};
+
+
 int main() {
+    SomeType<std::string> aa;
+    aa.mapping["hello"] = nullptr;
     // create object from string literal
     auto j = R"({ "happy": true, "pi": 3.141 })"_json;
 
     // explicit conversion to string
     std::string s = j.dump();    // {"happy":true,"pi":3.141}
+    json v = json::object();
+    
 
     // serialization with pretty printing
     // pass in the amount of spaces to indent

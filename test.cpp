@@ -1,13 +1,12 @@
-#include <iostream>
-#include <string>
 #include <exception>
+#include <iostream>
 #include <signal.h>
+#include <string>
 
-
+template<typename T> T f (T p);
+decltype(f(2)) x = 2;
 
 int main() {
-
-  std::string hh = "123hda";
-  hh.replace(hh.find("hda"), 3, "vda");
-  std::cout << hh << std::endl;
+  decltype(f(2)) x = 2;
+  return 0;
 }
