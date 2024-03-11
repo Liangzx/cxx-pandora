@@ -38,6 +38,7 @@ int main() {
   // HeapOnlyObject1 hoo1;
   // auto soo = new StackOnlyObject{};
   StackOnlyObject soo{};
+
   // AbstractClassWithProtect acwp{};
   return 0;
 }
