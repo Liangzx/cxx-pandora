@@ -17,7 +17,7 @@ class Human {
 public:
   // 构造函数模板
   template <typename T, typename = StrProcType<T>>
-  
+
   Human(T &&tmpname) : m_sname(std::forward<T>(tmpname)) {
     cout << "Human(T&& tmpname)执行" << endl;
   }
@@ -44,3 +44,6 @@ int main() {
   Human myhuman3(myhuman1);
   return 0;
 }
+
+// C++11 中 enable_if 的三种用法
+// https://juejin.cn/post/7027950165503770660
