@@ -1,13 +1,18 @@
 #include "ace/OS.h"
 #include "ace/Shared_Memory_Pool.h"
-#include "ace/Shared_Memory_Seg.h"
+#include "ace/Shared_Memory_SV.h"
 #include "ace/Thread_Mutex.h"
+#include "ace/RW_Thread_Mutex.h"
+#include "ace/Log_Msg.h"
+#include "ace/Mem_Map.h"
+#include "ace/Shared_Memory_MM.h"
 
 const char *shm_name = "my_shared_memory";
 const size_t shm_size = sizeof(ACE_RW_Thread_Mutex);// 使用RW锁，也可以是Mutex
 
 int create_and_init_mutex_in_shm() {
-    ACE_Shared_Memory_Seg shm(shm_name, shm_size, ACE_DEFAULT_PROTECTION);
+    ACE_Mem_Map mmap;
+    ACE_Shared_Memory_SV shm(shm_name, shm_size, ACE_DEFAULT_PROTECTION);
     if (!shm.valid()) {
         ACE_ERROR_RETURN((LM_ERROR, "Unable to create shared memory segment.\n"), -1);
     }

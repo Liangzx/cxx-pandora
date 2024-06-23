@@ -1,7 +1,7 @@
-#include <iostream>
-#include <functional>
-#include <vector>
 #include <algorithm>
+#include <functional>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 template <typename T> T &Sort(T &v) {
@@ -30,7 +30,8 @@ template <typename T, typename U> T &operator|(T &v, U fn) {
 int main() {
   vector<int> vec{3, 2, 1, 5, 4};
 
-  vec | Sort<vector<int>> | Reverse<vector<int>> | Print<vector<int>>;
+  vec | Sort<vector<int>> | Reverse<vector<int>> | Print<vector<int>> |
+      Reverse<vector<int>> | Print<vector<int>>;
 
   return 0;
 }
