@@ -42,3 +42,6 @@
 # Ignore GoLand files and directories
 .idea/
 .idea/*
+
+# Ignore tmp
+**/tmp/*

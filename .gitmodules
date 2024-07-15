@@ -1,3 +1,6 @@
 [submodule "books/cpp17-stl-cookbook"]
 	path = books/cpp17-stl-cookbook
 	url = https://github.com/PacktPublishing/Cpp17-STL-Cookbook.git
+[submodule "books/ccia"]
+	path = books/ccia
+	url = https://github.com/anthonywilliams/ccia_code_samples.git
