@@ -35,3 +35,4 @@ int main() {
 }
 
 // [C++中的依赖注入：提升代码可维护性的新策略](https://mp.weixin.qq.com/s/OY1SFcAbw3-iuHh9wZXFAA)
+// https://boost-ext.github.io/di/index.html
