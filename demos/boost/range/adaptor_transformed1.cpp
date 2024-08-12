@@ -34,5 +34,13 @@ int main() {
         std::cout << "Name: " << contact.name << ", Age: " << contact.age << std::endl;
     }
 
+    std::vector<Contact> vcs;
+    vcs.reserve(contacts.size());
+    std::move(contacts.begin(),  contacts.end(), std::back_inserter(vcs));
+    // std::move(contacts.begin(), contacts)
+    for (const auto& contact : contacts) {
+        std::cout << "Name: " << contact.name << ", Age: " << contact.age << std::endl;
+    }
+
     return 0;
 }
