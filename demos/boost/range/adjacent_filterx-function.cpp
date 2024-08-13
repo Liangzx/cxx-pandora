@@ -61,24 +61,6 @@ void func() {
     }
 }
 
-void func1() {
-for (int n : {0, 1, 2, 3, 4}) {
-        std::set<int> seen_values;
-
-        // adjacent_filtered() calls the binary predicate for every consecutive
-        // pair of values in the input range. If the predicate returns false,
-        // the first value of the pair is removed from the result range.
-        //
-        // The last value in the input range is always included (there is no
-        // pair where it's the first of the two values).
-        for (int i : vec | boost::adaptors::adjacent_filtered(lhs_neq(n))) {
-            seen_values.insert(i);
-        }
-        print_result(n, seen_values);
-    }
-
-}
-
 void func2() {
     using namespace boost::assign;
     using namespace boost::adaptors;
@@ -102,7 +84,6 @@ void func2() {
 
 int main() {
     // func();
-    // func1();
     func2();
 
     return 0;

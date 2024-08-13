@@ -116,3 +116,5 @@ int main() {
   std::cout << "Ratio T1/T2:~ "
             << 1. * oneCacheLiner_average / twoCacheLiner_average << '\n';
 }
+
+// https://en.cppreference.com/w/cpp/thread/hardware_destructive_interference_size
