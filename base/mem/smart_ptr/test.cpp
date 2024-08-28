@@ -1,21 +1,26 @@
 #include <memory>
 #include <iostream>
 
-class A {
+#include <iostream>
+#include <boost/shared_ptr.hpp>
+class Test
+{
 public:
-  std::shared_ptr<A> SharedPtr() {
-    auto sh = std::shared_ptr<A>(this);
-    std::cout << sh.use_count() << std::endl; // 1
-    // 返回时 this 已经释放
-    return sh;
-  }
-  void Show() { std::cout << "Hello!" << std::endl; }
+    //析构函数
+    ~Test() { std::cout << "Test Destructor." << std::endl; }
+    //获取指向当前对象的指针
+    std::shared_ptr<Test> GetObject()
+    {
+        std::shared_ptr<Test> pTest(this);
+        return pTest;
+    }
 };
 
 //////////////////////////////////////////////////////////////
 #include <iostream>
 #include <memory>
 
+// enable_shared_from_this用法分析
 class Test : public std::enable_shared_from_this<Test> // 改进1
 {
 public:
@@ -29,10 +34,6 @@ public:
 
 int main() {
 
-  //   A a;
-  //   auto as = a.SharedPtr();
-  //   std::cout << as.use_count() << std::endl; // 1
-  //   as->Show();
   {
     std::shared_ptr<Test> p(new Test());
     std::cout << "p.use_count(): " << p.use_count() << std::endl; // 1
