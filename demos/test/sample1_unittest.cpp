@@ -106,3 +106,14 @@ namespace {
 // Did you notice that we didn't register the tests?  The
 // RUN_ALL_TESTS() macro magically knows about all the tests we
 // defined.  Isn't this convenient?
+
+// #include <iostream>
+
+// int main(int argc, char* argv[]) {
+//   std::cout << "start gtest demo \r\n" << std::endl;
+//   ::testing::InitGoogleTest(&argc, argv);
+//   return RUN_ALL_TESTS();
+// }
+
+// g++ -std=c++17 *.cpp -L /usr/local/lib/ -lgtest -lpthread
+// g++ -std=c++17 *.cpp  -L /usr/local/lib/ -lgtest -lgtest_main -lpthread

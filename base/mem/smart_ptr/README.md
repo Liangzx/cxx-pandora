@@ -7,6 +7,8 @@
 [enable_shared_from_this-overview-examples-and-internals](https://www.nextptr.com/tutorial/ta1414193955/enable_shared_from_this-overview-examples-and-internals)
 [shared_ptr initialized with nullptr is null or empty?](https://www.nextptr.com/question/qa1372136808/shared_ptr-initialized-with-nullptr-is-null-or-empty)
 [shared_ptr中的owner_before解析（最易懂，最全面）](https://blog.csdn.net/weixin_45590473/article/details/113040456)
+[C++：为什么unique_ptr的Deleter是模板类型参数，而shared_ptr的Deleter不是？](https://www.cnblogs.com/fuzhe1989/p/7763623.html)
+[std::shared_ptr 代码试读（一）：代码结构](https://github.com/Walton1128/STL-soruce-code-read/blob/main/shared_ptr%20%E4%BB%A3%E7%A0%81%E8%AF%95%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.md)
 
 ## std::enable_shared_from_this
 
