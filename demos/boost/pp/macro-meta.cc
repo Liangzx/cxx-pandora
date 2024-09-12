@@ -543,4 +543,4 @@ using maybe_cref_t =
 
 // -> void foo(maybe_cref_t<int> v0, maybe_cref_t<std::string> v1);
 // -> void foo(int v0, const std::string& v1);
-void foo(PP_FOR_EACH(MAKE_ARG, , int, std::string));
+void foo(PP_FOR_EACH(MAKE_ARG,, int, std::string));

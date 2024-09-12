@@ -3,7 +3,7 @@
 #include <boost/preprocessor/repetition.hpp>
 
 #ifndef MAX_IS_FUNCTION_TESTER_PARAMS
-#define MAX_IS_FUNCTION_TESTER_PARAMS 15
+#define MAX_IS_FUNCTION_TESTER_PARAMS 1
 #endif
 
 #define IS_FUNCTION_TESTER(Z, N, _)                                            \
