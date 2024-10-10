@@ -25,8 +25,25 @@ int func_execle() {
   return 0;
 }
 
+void func_exec()
+{
+  // 执行 /bin/ls 命令，并传递 "-l" 参数
+    execlp("lss", "ls", "-l", (char *)0);
+
+    // 如果 exec 失败，才会执行到这里
+    perror("execlp");
+}
+
 int main() {
   //   func_environ();
-  func_execle();
+  // func_execle();
+  func_exec();
   return 0;
 }
+
+/**
+ * Note:
+ * exec 返回值
+ * 如果 exec 调用成功，控制权将转移到新程序，不会返回到原来的程序。
+ * 如果 exec 调用失败，会返回 -1，并且 errno 会被设置为相应的错误码。
+ */
