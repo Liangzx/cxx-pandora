@@ -45,7 +45,38 @@ int main() {
   return 0;
 }
 
+/* WRONG */
+
+struct T
+{
+    enum { int_t, float_t } type;
+
+    template<typename Integer,
+             typename = std::enable_if_t<std::is_integral<Integer>::value>>
+    T(Integer) : type(int_t) {}
+
+    template<typename Floating,
+             typename = std::enable_if_t<std::is_floating_point<Floating>::value>>
+    T(Floating) : type(float_t) {} // error: treated as redefinition
+};
+
+/* RIGHT */
+
+struct T
+{
+    enum { int_t, float_t } type;
+
+    template<typename Integer,
+             std::enable_if_t<std::is_integral<Integer>::value, bool> = true>
+    T(Integer) : type(int_t) {}
+
+    template<typename Floating,
+             std::enable_if_t<std::is_floating_point<Floating>::value, bool> = true>
+    T(Floating) : type(float_t) {} // OK
+};
+
 // C++11 中 enable_if 的三种用法
 // https://juejin.cn/post/7027950165503770660
 // C++11模板元编程—std::enable_if使用说明
 // https://blog.csdn.net/kpengk/article/details/119979733
+// https://en.cppreference.com/w/cpp/types/enable_if
