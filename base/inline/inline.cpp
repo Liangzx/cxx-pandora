@@ -1,4 +1,4 @@
-#include <iostream>  
+#include <iostream>
 using namespace std;
 class Base
 {
@@ -20,11 +20,11 @@ public:
 
 int main()
 {
-	// 此处的虚函数 who()，是通过类（Base）的具体对象（b）来调用的，编译期间就能确定了，所以它可以是内联的，但最终是否内联取决于编译器。 
+	// 此处的虚函数 who()，是通过类（Base）的具体对象（b）来调用的，编译期间就能确定了，所以它可以是内联的，但最终是否内联取决于编译器。
 	Base b;
 	b.who();
 
-	// 此处的虚函数是通过指针调用的，呈现多态性，需要在运行时期间才能确定，所以不能为内联。  
+	// 此处的虚函数是通过指针调用的，呈现多态性，需要在运行时期间才能确定，所以不能为内联。
 	Base *ptr = new Derived();
 	ptr->who();
 
@@ -33,4 +33,5 @@ int main()
 	ptr = nullptr;
 
 	return 0;
-} 
+}
+// https://blog.csdn.net/changyi9995/article/details/108245614

@@ -1,33 +1,45 @@
-#include <stdint.h>
-#include <stdio.h>
-#include <unistd.h>
 
-typedef struct section_s {
-  char *name;
-  void (*func)(struct section_s *);
-} s_section_t;
+#include <array>
+#include <chrono>
+#include <iostream>
+#include <vector>
+#include <array>
 
-extern s_section_t _mysec_start[];
-extern s_section_t _mysec_end[];
+void func1() {
+  const auto start_time = std::chrono::high_resolution_clock::now();
+  constexpr auto cnt = 1000000;
+  std::vector<int> vec(cnt);
+  vec.reserve(cnt);
+  // for (int i = 0; i < cnt; i++) {
+  //   // vec.push_back(i);
+  //   vec[i] = i;
+  // }
 
-static void func_sec(s_section_t *section) {
-  printf("section: %s\n", section->name);
+  std::cout << vec[100060] << std::endl;
+  const auto end_time = std::chrono::high_resolution_clock::now();
+  const auto dur = std::chrono::duration_cast<std::chrono::microseconds>(
+      end_time - start_time);
+  std::cout << dur.count() << std::endl;
 }
 
-s_section_t section_1
-    __attribute__((unused, section(".mysec"))) = {"section_1_s", func_sec};
-s_section_t section_2
-    __attribute__((unused, section(".mysec"))) = {"section_2_s", func_sec};
-s_section_t section_3
-    __attribute__((unused, section(".mysec"))) = {"section_3_s", func_sec};
+void func2() {
+  const auto start_time = std::chrono::high_resolution_clock::now();
+  constexpr auto cnt = 1000000;
+  std::array<int, cnt> vec{};
+  vec.fill(0);
+  // for (int i = 0; i < cnt; i++) {
+  //   // vec.push_back(i);
+  //   vec[i] = i;
+  // }
 
-int main(void) {
-  s_section_t *p = _mysec_start;
-  while (p < _mysec_end) {
-    if (p->func != NULL)
-      p->func(p);
-    p++;
-  }
+  const auto end_time = std::chrono::high_resolution_clock::now();
+  const auto dur = std::chrono::duration_cast<std::chrono::microseconds>(
+      end_time - start_time);
+  std::cout << dur.count() << std::endl;
+}
 
+int main() {
+  func1();
+  // func2();
   return 0;
 }
