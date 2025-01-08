@@ -4,3 +4,6 @@
 [submodule "books/ccia"]
 	path = books/ccia
 	url = https://github.com/anthonywilliams/ccia_code_samples.git
+[submodule "books/hands-on-design-patterns/Hands-On-Design-Patterns-with-CPP"]
+	path = books/hands-on-design-patterns/Hands-On-Design-Patterns-with-CPP
+	url = https://github.com/PacktPublishing/Hands-On-Design-Patterns-with-CPP-Second-Edition.git
