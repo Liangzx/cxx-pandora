@@ -54,7 +54,9 @@ class Vec : public VecExpression<Vec> {
   // 赋值构造函数可以接受任意父类VecExpression的实例，并且进行表达式的展开（对应表达式编译树中的赋值运算符节点）
   template <typename E>
   Vec(VecExpression<E> const& vec) : elems(vec.size()) {
+    std::cout << "------000--VecExpression<E> const& vec---" << std::endl;
     for (size_t i = 0; i != vec.size(); ++i) {
+      std::cout << "------1111--VecExpression<E> const& vec---" << std::endl;
       elems[i] = vec[i];
     }
   }
@@ -95,14 +97,21 @@ int main() {
   Vec v2 = {3.0, 3.0, 3.0};
 
   // 构建表达式 v0 + v1 + v2，赋值给v3，编译阶段形成表达式树
-  // VecSum<VecSum<Vec, Vec>, Vec> v3 = v0 + v1 + v2;
-  // VecSum<Vec, Vec>[] -> _u[i] + _v[i]
-  // VecSum<Vec, Vec>, Vec>[] -> (_u[i] + _v[i]) + elems[i]
+  // Vec3 = VecSum<VecSum<Vec0, Vec1>, Vec2>;
+  //    -> VecSum<Vec0, Vec1>[] + Vec2[i]
+  //    -> (_u[i] + _v[i]) + elems[i]
+  //  结合 https://godbolt.org/
   Vec v3 = v0 + v1 + v2;
-
+  std::cout << "------2222--Vec v3 = v0 + v1 + v2" << std::endl;
   // 输出结算结果
   for (int i = 0; i < v3.size(); i++) {
     std::cout << " " << v3[i];
+  }
+  std::cout << std::endl;
+  std::cout << "------3333--auto v4 = v0 + v1 + v2" << std::endl;
+  auto v4 = v0 + v1 + v2;
+  for (int i = 0; i < v4.size(); i++) {
+    std::cout << " " << v4[i];
   }
   std::cout << std::endl;
 }
