@@ -71,20 +71,20 @@ void func3() {
   cout << "ptr1指向的地址为" << ptr1.get() << endl;
   cout << "ptr2指向的地址为" << ptr2.get() << endl;
   cout << "ptr(指向class A的对象)与ptr1(指向class B的对象)" << endl;
-  cout << "ptr > ptr1 = " << ((int)ptr.get() > (int)ptr1.get()) << endl;
-  cout << "ptr < ptr1 = " << ((int)ptr.get() < (int)ptr1.get()) << endl;
+  cout << "ptr > ptr1 = " << ((int *)ptr.get() > (int *)ptr1.get()) << endl;
+  cout << "ptr < ptr1 = " << ((int *)ptr.get() < (int *)ptr1.get()) << endl;
   cout << "ptr.owner_before(ptr1)" << ptr.owner_before(ptr1) << endl;
   cout << "ptr1.owner_before(ptr)" << ptr1.owner_before(ptr) << endl;
 
   cout << "ptr(指向class A的对象)与ptr2(指向class AB的对象)" << endl;
-  cout << "ptr > ptr2 = " << ((int)ptr.get() > (int)ptr2.get()) << endl;
-  cout << "ptr < ptr2 = " << ((int)ptr.get() < (int)ptr2.get()) << endl;
+  cout << "ptr > ptr2 = " << ((int *)ptr.get() > (int *)ptr2.get()) << endl;
+  cout << "ptr < ptr2 = " << ((int *)ptr.get() < (int *)ptr2.get()) << endl;
   cout << "ptr.owner_before(ptr2)" << ptr.owner_before(ptr2) << endl;
   cout << "ptr2.owner_before(ptr)" << ptr2.owner_before(ptr) << endl;
 
   cout << "ptr1(指向class B的对象)与ptr2(指向class AB的对象)" << endl;
-  cout << "ptr1 > ptr2 = " << ((int)ptr1.get() > (int)ptr2.get()) << endl;
-  cout << "ptr1 < ptr2 = " << ((int)ptr1.get() < (int)ptr2.get()) << endl;
+  cout << "ptr1 > ptr2 = " << ((int *)ptr1.get() > (int *)ptr2.get()) << endl;
+  cout << "ptr1 < ptr2 = " << ((int *)ptr1.get() < (int *)ptr2.get()) << endl;
   cout << "ptr1.owner_before(ptr2)" << ptr1.owner_before(ptr2) << endl;
   cout << "ptr2.owner_before(ptr1)" << ptr2.owner_before(ptr1) << endl;
 }
@@ -96,13 +96,11 @@ void func3() {
  * 运算中的逻辑或操作(||)，然后再总体上取个非(!)操作“：
  */
 
-
 /**
  * 当我们将ptr.owner_before(ptr1)的返回结果与ptr1.owner_before(ptr)的返回结果进行逻辑或(||)操作后，
  * (ptr.owner_before(ptr1)||ptr1.owner_before(ptr))这个整体返回的值就排除了“ptr与ptr1两个指针指向地址先后“的干扰，因此如果”
  * (ptr.owner_before(ptr1)||ptr1.owner_before(ptr))
 “返回0就代表ptr与ptr1指针指向同一个类型的对象。类比：a 不小 b，且 b 不小于 a 则 a == b
-
 * 但是这样的看有些不爽，我们想要“当“ptr与ptr1指针指向同一个类型的对象”时，返回true，
 * 你却此时给我返回false，那么我就取个反就OK了，
 * 因此最终用于判断两个指针是否指向同一个类型对象的代码为“!(ptr.owner_before(ptr1)||ptr1.owner_before(ptr))”。
@@ -116,7 +114,9 @@ void func4() {
 }
 
 int main() {
-  func2();
+  func4();
 
   return 0;
 }
+
+// https://www.cnblogs.com/youxue-helloworld/p/12993810.html

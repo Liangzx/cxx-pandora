@@ -9,6 +9,9 @@
 [shared_ptr中的owner_before解析（最易懂，最全面）](https://blog.csdn.net/weixin_45590473/article/details/113040456)
 [C++：为什么unique_ptr的Deleter是模板类型参数，而shared_ptr的Deleter不是？](https://www.cnblogs.com/fuzhe1989/p/7763623.html)
 [std::shared_ptr 代码试读（一）：代码结构](https://github.com/Walton1128/STL-soruce-code-read/blob/main/shared_ptr%20%E4%BB%A3%E7%A0%81%E8%AF%95%E8%AF%BB%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.md)
+[c++智能指针[ shared_ptr / unique_ptr / weak_ptr ]介绍与使用](https://juejin.cn/post/7137133849430982693)
+[notion](https://www.notion.so/SpecialColumns-bd4c86fea6704b9f95fa00917bd21d63#09bfb0d0e2214781b15520e70e8e7f97)
+[C++ std::shared_ptr : aliasing constructor && owner_before()](https://www.cnblogs.com/youxue-helloworld/p/12993810.html)
 
 ## std::enable_shared_from_this
 
@@ -22,6 +25,7 @@ void good() {
  auto sp2{sp1}; //OK. sp2 shares control block with sp1
 }
 
+// exp1
 void bad() {
  auto p{new int(10)};
  std::shared_ptr<int> sp1{p};
@@ -29,6 +33,7 @@ void bad() {
 }
 
 struct Egg {
+ // 本质上与 exp1 一样，多个shared_ptr管理了一个 raw 指针
  std::shared_ptr<Egg> getSelfPtr() {
   return std::shared_ptr<Egg>(this); //!! Bad
  }

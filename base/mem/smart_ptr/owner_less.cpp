@@ -27,6 +27,8 @@ int main() {
   std::set<std::shared_ptr<int>, std::owner_less<std::shared_ptr<int>>>
       owner_based;
 
+  std::cout << "a\t:" << a.get() << std::endl;
+  std::cout << "a1\t:" << a1.get() << std::endl;
   value_based.insert(a);
   value_based.insert(a1);
   value_based.insert(b);  // ok, different value

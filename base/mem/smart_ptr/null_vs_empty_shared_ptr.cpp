@@ -47,7 +47,7 @@ int main() {
   // A null and empty shared_ptr<void> is passed
   // to aliasing constructor to initialize px
   std::shared_ptr<int> px(std::shared_ptr<void>(), &x);
-  std::cout << px.use_count() << std::endl;
+  std::cout << px.use_count() << std::endl; // 0
 
   return 0;
 }

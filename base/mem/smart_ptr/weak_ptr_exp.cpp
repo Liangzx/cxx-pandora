@@ -126,9 +126,60 @@ int SharedFromThis() {
   return 0;
 }
 
+// https://juejin.cn/post/7137133849430982693
+void func1() {
+  weak_ptr<int> wp;
+  {
+    shared_ptr<int> sp(new int(1));  // sp.use_count()==1
+    std::cout << sp.use_count() << std::endl;
+    wp = sp;  // wp不会改变引用计数，所以sp.use_count()==1
+    std::cout << sp.use_count() << std::endl;
+    shared_ptr<int> sp_ok =
+        wp.lock();  // wp没有重载->操作符。只能这样取所指向的对象
+    // sp.use_count()==2
+    std::cout << sp.use_count() << std::endl;
+  }
+
+  if (auto pp1 = wp.lock()) {
+    std::cout << "-----------" << std::endl;
+    std::cout << *pp1 << std::endl;
+  }
+
+  shared_ptr<int> sp_null = wp.lock();  // sp_null .use_count()==0;
+  std::cout << sp_null.use_count() << std::endl;
+  if (!wp.expired()) {
+    std::cout << "执行流程" << endl;
+  } else {
+    std::cout << "已经销毁" << endl;
+  }
+  // Segmentation fault (core dumped)
+  // std::cout << *sp_null << std::endl;
+}
+
+void func2() {
+  shared_ptr<int> sp(new int(1));  // sp.use_count()==1
+  weak_ptr<int> wp = sp;
+  wp = sp;  // wp不会改变引用计数，所以sp.use_count()==1
+  std::cout << sp.use_count() << std::endl;
+  if (!wp.expired()) {  // 1 != 0 true
+    // 此时其他线程将 sp 释放，则 sp.use_count()==0
+    shared_ptr<int> sp_ok = wp.lock();  // sp.use_count()==0，无效
+    std::cout << sp.use_count() << std::endl;
+    // 再对指针操作都是无效操作了
+  } else {
+    std::cout << "已经销毁" << std::endl;
+  }
+
+  if (auto pp1 = wp.lock()) {
+    std::cout << *pp1 << std::endl;
+  }
+}
+
 int main() {
   //   DanglingPointerSolution();
   //   DependencyCycleSolution();
-  SharedFromThis();
+  // SharedFromThis();
+  func1();
+  // func2();
   return 0;
 }
