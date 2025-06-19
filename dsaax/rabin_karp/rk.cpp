@@ -29,6 +29,11 @@ void RabinKarp(char t[], char p[]) {
       cout << p << " is found at index " << i << endl;
 
     // 哈希滚动
+    /**
+     * 公式推导如下： 假设当前窗口为 t[i...i+m-1]，下一个窗口是 t[i+1...i+m]。 新的哈希值可以表示为：
+     * new_hash = (old_hash - t[i] * d^(m-1)) * d + t[i+m] = d * (old_hash - t[i] * h) + t[i+m]
+      其中 h = d^(m-1) % q
+     */
     t_hash = (BASE * (t_hash - t[i] * h) + t[i + p_len]) % MODULUS;
 
     // 防止出现负数
