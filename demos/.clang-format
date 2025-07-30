@@ -2,7 +2,7 @@
 BasedOnStyle: LLVM
 ---
 Language: Cpp
-AccessModifierOffset: -2
+AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: true
@@ -11,6 +11,7 @@ AllowShortLambdasOnASingleLine: None
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
 BinPackParameters: false
+BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: true
   AfterClass: true
@@ -18,7 +19,7 @@ BraceWrapping:
   AfterEnum: true
   AfterExternBlock: true
   AfterFunction: true
-  AfterNamespace: true
+  AfterNamespace: false
   AfterStruct: true
   AfterUnion: true
   BeforeCatch: false
@@ -27,14 +28,13 @@ BraceWrapping:
   SplitEmptyFunction: true
   SplitEmptyNamespace: true
   SplitEmptyRecord: true
-BreakBeforeBraces: Custom
 BreakConstructorInitializers: BeforeColon
 BreakInheritanceList: BeforeColon
 ColumnLimit: 80
-ConstructorInitializerIndentWidth: 2
-ContinuationIndentWidth: 2
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
 IncludeBlocks: Preserve
-IndentWidth: 2
+IndentWidth: 4
 MaxEmptyLinesToKeep: 1
 PenaltyReturnTypeOnItsOwnLine: 1024
 PointerAlignment: Left
@@ -42,13 +42,8 @@ SortIncludes: true
 SortUsingDeclarations: false
 SpaceAfterTemplateKeyword: false
 SpaceBeforeInheritanceColon: false
-SpaceBeforeParens: Custom
-SpaceBeforeParensOptions:
-  AfterControlStatements: true
-  AfterFunctionDefinitionName: false
-  AfterOverloadedOperator: true
-TabWidth: 2
-TemplateArgumentColon: Never
+SpaceBeforeParens: ControlStatements
+TabWidth: 4
 UseTab: Never
 
 # find . -name client.* -exec clang-format -style=file -i {} \;
