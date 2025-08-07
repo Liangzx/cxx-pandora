@@ -4,6 +4,10 @@
 #include "tr_enable_if.h"
 #include "tr_is_valid.h"
 
+#include <iterator>
+
+// /usr/include/c++/9/bits/stl_iterator_base_types.h: input_iterator_tag
+
 // std::enable_if
 // constexpr auto isDefaultConstructible= [](auto &&...args)
 //{
