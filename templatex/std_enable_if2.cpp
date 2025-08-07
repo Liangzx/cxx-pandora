@@ -90,3 +90,5 @@ int main() {
   A<int>{};     // OK: matches the primary template
   A<double>{};  // OK: matches the partial specialization
 }
+
+// https://en.cppreference.com/w/cpp/types/enable_if.html
