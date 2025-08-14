@@ -65,5 +65,6 @@ private:
 
 int main() {
   // std::optional<UserName> opt(UserName{});
+  // std::optional<UserName> opt({});
   std::optional<UserName> opt{std::in_place};
 }
