@@ -49,6 +49,7 @@ template <typename... Ts> struct overload : Ts... {
 };
 
 // 基类的类型从传入的参数中推导
+// 类模版参数推导(CTAD)(https://mp.weixin.qq.com/s/8tPoBrZiPY7XqdmmZJZe4Q)
 template <typename... Ts> overload(Ts...) -> overload<Ts...>;
 
 #include <variant>
@@ -78,7 +79,7 @@ int main() {
 
   std::any a = "hello";
 
-  
+
 
   return 0;
 }
